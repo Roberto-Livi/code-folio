@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_06_14_214612) do
     t.string "birth_date"
     t.string "education"
     t.string "skills"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
