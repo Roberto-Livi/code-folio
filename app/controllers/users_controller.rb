@@ -17,13 +17,18 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
     end
 
     def edit
     end
 
     def update
+        @user.update(user_params)
+        if @user.save
+            redirect_to user_path(@user)
+        else
+            redirect_to edit_user_path(@user)
+        end
     end
 
     def destroy
@@ -33,7 +38,7 @@ class UsersController < ApplicationController
 
     private
 
-    def user_params
+    def user_params(*args)
         params.require(:user).permit(:username, :password, :password_confirmation,:title, :birth_date, :education, :skills)
     end
 

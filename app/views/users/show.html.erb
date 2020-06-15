@@ -1,5 +1,11 @@
 <h1>Hello <%= @user.username %></h1>
 
+<ul>
+    <li>Title: <%= @user.title %></li>
+    <li>Skills: <%= @user.skills %></li>
+    <li>Education: <%= @user.education %></li>
+</ul>
+
 <% if current_user == @user %>
 
 <p>
