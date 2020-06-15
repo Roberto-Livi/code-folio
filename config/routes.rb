@@ -13,4 +13,9 @@ Rails.application.routes.draw do
   # Sessions
   resources :sessions, only: [:new, :create]
 
+  # Nested Resources
+  resources :users, only: [:show] do
+    resources :posts, only: [:show]
+  end
+
 end

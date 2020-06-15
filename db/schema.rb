@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_06_14_214612) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.string "title"
     t.string "content"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

@@ -27,11 +27,19 @@
 <% end %>
 <% end %>
 
-<p>
     <% @user.posts.reverse.each do |post| %>
-        <%= post.content %>
+
+        <% if current_user == @user %>
+            <li><%= link_to "Edit Post", user_post_path(post.user_id, post.id) %></li>
+        <% end %>
+
+    <div border = 1>
+        <h3><%= post.title %></h3><br>
+        <p><%= post.content %></p>
+    </div>
+
     <% end %>
-</p>
+
 
 <p>
     <%= link_to "Log Out", "/logout" %>
