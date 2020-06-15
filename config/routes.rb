@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   # Posts
   resources :posts
 
+  # Sessions
+  resources :sessions, only: [:new, :create]
+
 end

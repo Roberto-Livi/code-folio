@@ -3,9 +3,13 @@
 <%= form_tag({controller:"posts", action:"create", method:"post"}) do %>
 
     <label>Post</label><br>
-    <textarea name="post[content]" cols="30" rows="10"></textarea>
+    <textarea name="post[content]" cols="30" rows="10"></textarea><br>
 
-    <input type="submit" value="Create Post">
+    <input type="submit" value="Create Post"><br>
+
+    <%= if flash[:empty_post] %>
+        <%= flash[:empty_post] %>
+    <% end %>
 
 <% end %>
 
