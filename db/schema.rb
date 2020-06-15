@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2020_06_14_214612) do
     t.string "username"
     t.string "password_digest"
     t.string "title"
-    t.string "birth_date"
     t.string "education"
     t.string "skills"
     t.datetime "created_at", precision: 6, null: false
