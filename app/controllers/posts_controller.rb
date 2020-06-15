@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
-    before_action :find_post, only: [:edit, :update, :destroy]
+    before_action :find_post, only: [:edit, :update, :show, :destroy]
 
     def create
         if !params[:post][:content].empty?
-            post = Post.create()
+            post = Post.create(post_params)
             current_user.posts << post
 
             redirect_to user_path(current_user)
@@ -13,6 +13,9 @@ class PostsController < ApplicationController
         end
     end
 
+    def show
+    end
+
     def edit
     end
 
@@ -20,7 +23,7 @@ class PostsController < ApplicationController
         @post.update(post_params)
 
         if @post.save
-            redirect_to @post
+            redirect_to user_path(current_user)
         else
             render :edit
         end
@@ -28,7 +31,7 @@ class PostsController < ApplicationController
 
     def destroy
         @post.destroy
-        flash[:notice] = "Post deleted."
+        # flash[:notice] = "Post deleted."
         redirect_to posts_path
     end
 

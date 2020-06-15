@@ -16,6 +16,11 @@
 <%= form_tag({controller:"posts", action:"create", method:"post"}) do %>
 
     <label>Post</label><br>
+    <p>
+        <label>Title</label>
+        <input type="text" name="post[title]"><br>
+    </p>
+
     <textarea name="post[content]" cols="30" rows="10"></textarea><br>
 
     <input type="submit" value="Create Post"><br>
@@ -29,14 +34,15 @@
 
     <% @user.posts.reverse.each do |post| %>
 
-        <% if current_user == @user %>
-            <li><%= link_to "Edit Post", user_post_path(post.user_id, post.id) %></li>
-        <% end %>
+        <h3><%= post.title %></h3>
+        <%= post.content %>
 
-    <div border = 1>
-        <h3><%= post.title %></h3><br>
-        <p><%= post.content %></p>
-    </div>
+    <p>
+        <% if current_user == @user %>
+        <li><%= link_to "Edit Post", edit_post_path(post) %></li>
+        <li><%= link_to "See Post", user_post_path(post.user_id, post.id) %></li>
+        <% end %>
+    </p>
 
     <% end %>
 
