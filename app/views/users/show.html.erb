@@ -14,5 +14,11 @@
 <% end %>
 
 <p>
+    <% @user.posts.reverse.each do |post| %>
+        <%= post.content %>
+    <% end %>
+</p>
+
+<p>
     <%= link_to "Log Out", "/logout" %>
 </p>
