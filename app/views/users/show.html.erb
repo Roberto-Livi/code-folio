@@ -1,5 +1,14 @@
 <h1>Hello <%= @user.username %></h1>
 
+<%= form_tag({controller:"posts", action:"create", method:"post"}) do %>
+
+    <label>Post</label><br>
+    <textarea name="post[content]" cols="30" rows="10"></textarea>
+
+    <input type="submit" value="Create Post">
+
+<% end %>
+
 <p>
     <%= link_to "Log Out", "/logout" %>
 </p>
