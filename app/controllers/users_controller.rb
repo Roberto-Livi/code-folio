@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
     def index
         @user = User.find_by(id: session[:user_id])
+        @searched_user = User.search(params[:search])
     end
 
     def new
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :password, :password_confirmation,:title, :birth_date, :education, :skills)
+        params.require(:user).permit(:username, :password, :password_confirmation,:title, :birth_date, :education, :skills, :search)
     end
 
     def find_user
