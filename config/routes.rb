@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :posts, only: [:create, :edit, :update, :destroy]
   # get "/deletepost" => "posts#destroy"
 
+  # Comments
+  resources :comments, only: [:create]
+
   # Sessions
   resources :sessions, only: [:new, :create]
 

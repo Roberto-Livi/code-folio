@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
     def show
         @user = User.find(params[:user_id])
+        @comment = Comment.new
     end
 
     def edit

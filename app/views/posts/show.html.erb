@@ -10,6 +10,17 @@
     by <%= @user.username %>
 </p>
 
+<p>
+    <%= render 'comments/form' %>
+</p>
+
+<p>
+    <% @post.comments.each do |comment| %>
+        <%= comments_username(comment.user_id) %><br>
+        <%= comment.content %>
+    <% end %>
+</p>
+
 <% if current_user == @user %>
 
 <p>

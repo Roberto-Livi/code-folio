@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-    helper_method :current_user, :login_required
+    helper_method :current_user, :login_required, :comments_username
 
     def current_user
         user = User.find_by(:id => session[:user_id])
@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
         unless session[:user_id]
             redirect_to root_url
         end
+    end
+
+    def comments_username(user)
+        comment = User.find(user).username
     end
 
 end
