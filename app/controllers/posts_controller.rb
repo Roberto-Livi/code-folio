@@ -18,6 +18,11 @@ class PostsController < ApplicationController
     end
 
     def edit
+        if session[:user_id] != @post.user_id
+            redirect_to user_path(current_user)
+        else
+            render :edit
+        end
     end
 
     def update
