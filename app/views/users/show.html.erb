@@ -44,10 +44,11 @@
 <p>
     <% if current_user == @user %>
 
-        <li><%= link_to "Edit Post", edit_post_path(post) %></li>
+        <%= link_to "Edit Post", edit_post_path(post) %><br>
 
-        <li><%= link_to "See Post", user_post_path(post.user_id, post.id) %></li>
     <% end %>
+
+    <%= link_to "View Post", user_post_path(post.user_id, post.id) %>
 </p>
 
 <% end %>

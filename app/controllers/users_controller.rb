@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show, :edit, :update, :index]
+    before_action :find_user, only: [:show, :edit, :update]
     before_action :login_required, only: [:show, :edit, :index]
 
     def index
+        @user = User.find_by(id: session[:user_id])
     end
 
     def new
