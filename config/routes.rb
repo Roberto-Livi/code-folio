@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "welcome#home"
 
   #Users
-  resources :users
+  resources :users, :except => [:destroy]
   get "/logout" => "users#destroy"
 
   # Posts

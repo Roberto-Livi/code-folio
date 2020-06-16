@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     end
 
     def login_required
-        unless current_user
+        unless session[:user_id]
             redirect_to root_url
         end
     end
