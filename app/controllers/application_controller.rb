@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-    helper_method :current_user, :login_required, :comments_username
+    helper_method :current_user, :login_required, :comments_username, :comments_user_instance
 
     def current_user
         user = User.find_by(:id => session[:user_id])
@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
 
     def comments_username(user)
         comment = User.find(user).username
+    end
+
+    def comments_user_instance(user_id)
+        user = User.find(user_id)
     end
 
 end

@@ -9,10 +9,9 @@ Rails.application.routes.draw do
 
   # Posts
   resources :posts, only: [:create, :edit, :update, :destroy]
-  # get "/deletepost" => "posts#destroy"
 
   # Comments
-  resources :comments, only: [:create]
+  resources :comments, only: [:create, :destroy]
 
   # Sessions
   resources :sessions, only: [:new, :create]
