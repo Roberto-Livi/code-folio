@@ -1,3 +1,5 @@
+
+
 <h1><%= @post.title %></h1>
 
 <p>
@@ -5,5 +7,19 @@
 </p>
 
 <p>
+    by <%= @user.username %>
+</p>
+
+<% if current_user == @user %>
+
+<p>
     <%= link_to "Delete Post", "/deletepost" %>
+</p>
+
+<% end %>
+
+<p>
+    <p>
+        <%= link_to "Go back to your page", user_path(current_user) %>
+    </p>
 </p>
