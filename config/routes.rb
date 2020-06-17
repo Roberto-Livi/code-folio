@@ -21,4 +21,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:show]
   end
 
+  # Follow
+  resources :follows, only: [:create, :destroy]
+
 end

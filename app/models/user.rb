@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
         active_follows.find_by(followed_id: user.id).destroy
     end
 
-    def following(user)
+    def following?(user)
         following.include?(user)
     end
 
