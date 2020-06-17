@@ -2,11 +2,7 @@
 
 <p>
     <% if current_user != @user %>
-        <% if current_user.following?(@user) %>
-            <button name="unfollow" type="submit">Unfollow</button>
-        <% else %>
-            <button style="background-color:cornflowerblue" name="follow" type="submit">Follow</button>
-        <% end %>
+        <%= render 'follows/form' %>
     <% end %>
 </p>
 

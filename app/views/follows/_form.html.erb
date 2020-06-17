@@ -1,0 +1,11 @@
+<% if current_user.following?(@user) %>
+    <%= form_tag(follow_path(user_id: @user.id), method: :delete) do %>
+        <%= hidden_field_tag :user_id, @user.id %>
+        <%= submit_tag "Unfollow" %>
+    <% end %>
+<% else %>
+    <%= form_tag({controller:"follows",     action:"create", method:"post"}) do %>
+        <%= hidden_field_tag :user_id, @user.id %>
+        <%= submit_tag("Follow", :style => "background-color: cornflowerblue") %>
+    <% end %>
+<% end %>
