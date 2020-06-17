@@ -11,7 +11,7 @@
         <%= link_to @searched_user.username, user_path(@searched_user) %>
     <% else %>
         <% @searched_user.each do |user| %>
-            <%= user.username %><br>
+            <%= link_to user.username, user_path(user) %><br>
         <% end %>
     <% end %>
 </p>
