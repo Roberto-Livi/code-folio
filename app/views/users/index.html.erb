@@ -3,15 +3,19 @@
 <%= form_tag users_path, :method => "get" do %>
     <%= label_tag(:search, "Enter Username: ") %>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag("Search", :name => nil) %>
+    <%= submit_tag("Search", :username => nil) %>
 <% end %>
 
 <p>
-    <% if @searched_user %>
-    <%= @searched_user.username %>
+    <% if defined?(@searched_user.username) %>
+        <%= link_to @searched_user.username, user_path(@searched_user) %>
+    <% else %>
+        <% @searched_user.each do |user| %>
+            <%= user.username %><br>
+        <% end %>
     <% end %>
 </p>
 
 <p>
-    <%= link_to "Your Page", users_path(@user) %>
+    <%= link_to "Your Page", user_path(@user) %>
 </p>
