@@ -1,7 +1,6 @@
 <div style="text-align: center;">
 
-
-<h1 style="font-size: 50px;"><%= @user.username %></h1>
+<div style="font-size: 50px; font-weight: bold;"><%= user_avatar(@user) %><%=space%><%= @user.username %></div>
 
     <% if current_user != @user %>
         <%= render 'follows/form' %>
