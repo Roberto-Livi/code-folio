@@ -35,17 +35,16 @@
     <%= link_to "Users Feed", users_path %>
 </p><br><br>
 
-
 <%= form_tag({controller:"posts", action:"create", method:"post"}) do %>
 
-    <p>
-        <label>Title</label>
-        <input type="text" name="post[title]"><br>
-    </p>
+<p>
+    <%= label_tag "Title" %>
+    <%= text_field_tag "post[title]" %><br>
+</p>
 
-    <textarea name="post[content]" cols="30" rows="10"></textarea><br>
+<%= text_area_tag 'post[content]', nil, size:"35x10" %><br><br>
 
-    <input type="submit" value="Create Post"><br><br><br>
+<input type="submit" value="Create Post"><br><br><br>
 
     <% if flash[:empty_post] %>
         <%= flash[:empty_post] %>

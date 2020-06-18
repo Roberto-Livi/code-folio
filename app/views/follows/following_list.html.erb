@@ -1,12 +1,6 @@
 <h1>Following</h1><br><br>
 
-<% @users.each do |user| %>
-
-    <p>
-        <%= link_to user.username, user_path(user) %>
-    </p><br><br>
-
-<% end %><br><br>
+<%= render "list" %>
 
 <p>
     <%= link_to "Back", user_path(current_user) %>
