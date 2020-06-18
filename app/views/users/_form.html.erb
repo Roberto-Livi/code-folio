@@ -34,6 +34,16 @@
     </p>
 
     <p>
+        <%= f.label "Gender: "%>
+        <%= f.radio_button :gender, "male" %>
+        <%= f.label :male %>
+        <%= f.radio_button :gender, "female" %>
+        <%= f.label :female %>
+        <%= f.radio_button :gender, "other" %>
+        <%= f.label :other %>
+    </p>
+
+    <p>
         <%= f.submit "Submit" %>
     </p>
 

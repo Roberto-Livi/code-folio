@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
     has_secure_password
     validates :username, uniqueness: true
     validates :password, length: { in: 5..30 }
+    has_one_attached :profile_pic
 
     has_many :active_follows, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
 
@@ -12,6 +13,8 @@ class User < ActiveRecord::Base
     has_many :following, through: :active_follows, source: :followed
 
     has_many :followers, through: :passive_follows, source: :follower
+
+    enum gender: [:female, :male, :other]
 
     def follow(user)
         active_follows.create(followed_id: user.id)
