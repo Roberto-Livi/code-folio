@@ -10,8 +10,13 @@
     <% if defined?(@searched_user.username) %>
         <%= link_to @searched_user.username, user_path(@searched_user) %>
     <% else %>
-        <% @searched_user.each do |user| %>
-            <%= link_to user.username, user_path(user) %><br>
+        <% Post.all.reverse.each do |post| %>
+            <% if user = current_user.following.find_by(:id => post.user_id) %>
+            <p>
+                <%= user.username %><br>
+                <%= post.content %>
+            </p>
+            <% end %>
         <% end %>
     <% end %>
 </p>
@@ -19,3 +24,7 @@
 <p>
     <%= link_to "Your Page", user_path(@user) %>
 </p>
+
+<% current_user.following.each do |user| %>
+<%= link_to user.username, user_path(user) %><br>
+<% end %>

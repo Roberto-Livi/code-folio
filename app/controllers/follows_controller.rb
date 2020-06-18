@@ -6,10 +6,14 @@ class FollowsController < ApplicationController
         redirect_to user_path(@user)
     end
 
+    def list_of_follows
+    end
+
     def destroy
         current_user.unfollow(@user)
         redirect_to user_path(@user)
     end
+
 
     private
 

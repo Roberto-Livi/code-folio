@@ -6,6 +6,14 @@
     <% end %>
 </p>
 
+<div>
+    <strong>
+        following <%= @user.following.count %> |
+        followers <%= @user.followers.count %>
+    </strong>
+</div>
+
+
 <ul>
     <li>Title: <%= @user.title %></li>
     <li>Skills: <%= @user.skills %></li>
