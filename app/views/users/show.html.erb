@@ -5,9 +5,9 @@
         <%= render 'follows/form' %>
     <% end %><br><br>
 
-<div id="follow_list">
-        follow <%= link_to @user.following.count, following_list_path %>
-        followers <%= link_to @user.followers.count, followers_list_path %>
+<div>
+        <strong>follow<%= link_to @user.following.count, following_list_path, :style => "border: none; background-color: white;" %> </strong>
+        <strong>followers <%= link_to @user.followers.count, followers_list_path, :style => "border: none; background-color: white;" %></strong>
 </div><br><br>
 
 
@@ -45,7 +45,7 @@
 
     <textarea name="post[content]" cols="30" rows="10"></textarea><br>
 
-    <input type="submit" value="Create Post"><br>
+    <input type="submit" value="Create Post"><br><br><br>
 
     <% if flash[:empty_post] %>
         <%= flash[:empty_post] %>
@@ -66,7 +66,7 @@
 
     <% end %><br><br>
 
-    <%= link_to "View Post", user_post_path(post.user_id, post.id) %>
+    <%= link_to "View Post", user_post_path(post.user_id, post.id) %><br><br><br><br><br>
 </p>
 
 <% end %><br><br>
@@ -80,6 +80,6 @@
 
 
 <p>
-    <%= link_to "Log Out", "/logout" %>
+    <%= link_to "Log Out", "/logout", :style => "background-color: #CC0000;" %>
 </p>
 </div>
