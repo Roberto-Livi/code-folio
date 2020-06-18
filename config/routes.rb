@@ -23,5 +23,7 @@ Rails.application.routes.draw do
 
   # Follow
   resources :follows, only: [:create, :destroy]
+  get "/followers_list" => "follows#followers_list"
+  get "/following_list" => "follows#following_list"
 
 end

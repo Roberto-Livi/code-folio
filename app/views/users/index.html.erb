@@ -25,6 +25,3 @@
     <%= link_to "Your Page", user_path(@user) %>
 </p>
 
-<% current_user.following.each do |user| %>
-<%= link_to user.username, user_path(user) %><br>
-<% end %>

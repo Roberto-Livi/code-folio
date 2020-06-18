@@ -6,11 +6,9 @@
     <% end %>
 </p>
 
-<div>
-    <strong>
-        following <%= @user.following.count %> |
-        followers <%= @user.followers.count %>
-    </strong>
+<div id="follow_list">
+        follow <%= link_to @user.following.count, following_list_path %>
+        followers <%= link_to @user.followers.count, followers_list_path %>
 </div>
 
 
@@ -65,6 +63,13 @@
     <%= link_to "View Post", user_post_path(post.user_id, post.id) %>
 </p>
 
+<% end %>
+
+
+<% if current_user != @user %>
+<p>
+    <%= link_to "Back to your page", user_path(current_user) %>
+</p>
 <% end %>
 
 
