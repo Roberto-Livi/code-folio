@@ -1,7 +1,7 @@
+<%= user_avatar(@user) %>
+
 <div style="text-align: center;">
-
-<div style="font-size: 50px; font-weight: bold;"><%= user_avatar(@user) %><%=space%><%= @user.username %></div>
-
+    <div style="font-size: 50px; font-weight: bold;"><%= @user.username %></div><br><br><br>
     <% if current_user != @user %>
         <%= render 'follows/form' %>
     <% end %><br><br>
@@ -38,7 +38,6 @@
 
 <%= form_tag({controller:"posts", action:"create", method:"post"}) do %>
 
-    <label>Post</label><br>
     <p>
         <label>Title</label>
         <input type="text" name="post[title]"><br>
@@ -75,7 +74,8 @@
 
 <% if current_user != @user %>
 <p>
-    <%= link_to "Back to your page", user_path(current_user) %>
+    <%= link_to "Back to your page", user_path(current_user) %><br><br><br><br><br>
+    <%= link_to "Users Feed", users_path %>
 </p>
 <% end %><br><br>
 

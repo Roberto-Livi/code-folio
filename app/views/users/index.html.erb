@@ -8,12 +8,17 @@
 
 <p>
     <% if defined?(@searched_user.username) %>
-        <%= link_to @searched_user.username, user_path(@searched_user) %>
+        <div style ="width: 30%;">
+            <%= user_avatar(@searched_user) %><br><br><br>
+            <%= link_to @searched_user.username, user_path(@searched_user), :style => "background-color: deepskyblue;" %>
+        </div>
     <% else %>
         <% @posts.reverse.each do |post| %>
             <% if user = current_user.following.find_by(:id => post.user_id) %>
             <p>
-                <%= user.username %><br>
+                <%= link_to user.username, user_path(user), :style => "background-color: deepskyblue;" %><br><br><br>
+
+                <strong><%= post.title %></strong><br><br>
                 <%= post.content %><br><br><br>
             </p>
             <% end %>
