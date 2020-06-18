@@ -1,32 +1,38 @@
-<h1>Hello <%= @user.username %></h1>
+<div style="text-align: center;">
+<h1 style="font-size: 50px;"><%= @user.username %></h1>
 
-<p>
     <% if current_user != @user %>
         <%= render 'follows/form' %>
-    <% end %>
-</p>
+    <% end %><br><br>
 
 <div id="follow_list">
         follow <%= link_to @user.following.count, following_list_path %>
         followers <%= link_to @user.followers.count, followers_list_path %>
-</div>
+</div><br><br>
 
 
-<ul>
-    <li>Title: <%= @user.title %></li>
-    <li>Skills: <%= @user.skills %></li>
-    <li>Education: <%= @user.education %></li>
-</ul>
+<table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+    <tr>
+        <th>Title</th>
+        <th>Skills</th>
+        <th>Education</th>
+    </tr>
+    <tr>
+        <td><%= @user.title %></td>
+        <td><%= @user.skills %></td>
+        <td><%= @user.education %></td>
+    </tr>
+</table><br><br>
 
 <% if current_user == @user %>
 
 <p>
     <%= link_to "Edit Profile", edit_user_path %>
 </p>
-
+<br>
 <p>
     <%= link_to "Users Feed", users_path %>
-</p>
+</p><br><br>
 
 
 <%= form_tag({controller:"posts", action:"create", method:"post"}) do %>
@@ -51,28 +57,29 @@
 <% @user.posts.reverse.each do |post| %>
 
         <h3><%= post.title %></h3>
-        <%= post.content %>
+        <%= post.content %><br><br>
 
 <p>
     <% if current_user == @user %>
 
         <%= link_to "Edit Post", edit_post_path(post) %><br>
 
-    <% end %>
+    <% end %><br><br>
 
     <%= link_to "View Post", user_post_path(post.user_id, post.id) %>
 </p>
 
-<% end %>
+<% end %><br><br>
 
 
 <% if current_user != @user %>
 <p>
     <%= link_to "Back to your page", user_path(current_user) %>
 </p>
-<% end %>
+<% end %><br><br>
 
 
 <p>
     <%= link_to "Log Out", "/logout" %>
 </p>
+</div>

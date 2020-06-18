@@ -1,12 +1,12 @@
-<h1>Following</h1>
+<h1>Following</h1><br><br>
 
 <% @users.each do |user| %>
 
     <p>
         <%= link_to user.username, user_path(user) %>
-    </p>
+    </p><br><br>
 
-<% end %>
+<% end %><br><br>
 
 <p>
     <%= link_to "Back", user_path(current_user) %>

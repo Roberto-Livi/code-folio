@@ -1,4 +1,4 @@
-<h1>Hello</h1>
+<h1>News Feed</h1>
 
 <%= form_tag users_path, :method => "get" do %>
     <%= label_tag(:search, "Enter Username: ") %>
@@ -14,12 +14,12 @@
             <% if user = current_user.following.find_by(:id => post.user_id) %>
             <p>
                 <%= user.username %><br>
-                <%= post.content %>
+                <%= post.content %><br><br><br>
             </p>
             <% end %>
         <% end %>
     <% end %>
-</p>
+</p><br><br><br>
 
 <p>
     <%= link_to "Your Page", user_path(@user) %>
