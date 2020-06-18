@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     def index
         @user = User.find_by(id: session[:user_id])
         @searched_user = User.search(params[:search])
+        @posts = Post.all
     end
 
     def new

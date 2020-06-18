@@ -10,7 +10,7 @@
     <% if defined?(@searched_user.username) %>
         <%= link_to @searched_user.username, user_path(@searched_user) %>
     <% else %>
-        <% Post.all.reverse.each do |post| %>
+        <% @posts.reverse.each do |post| %>
             <% if user = current_user.following.find_by(:id => post.user_id) %>
             <p>
                 <%= user.username %><br>
