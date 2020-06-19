@@ -27,6 +27,6 @@ Rails.application.routes.draw do
   get "/following_list" => "follows#following_list"
 
   # Facebook Login
-  get '/auth/facebook/callback' => 'sessions#create'
+  get '/auth/facebook/callback' => 'sessions#facebook_create'
 
 end
