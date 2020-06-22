@@ -18,13 +18,14 @@ class SessionsController < ApplicationController
     end
 
     def facebook_create
-        @user = User.find_or_create_by(uid: auth['uid']) do |u|
-            u.username = auth['info']['name']
-            u.profile_pic = auth['info']['image']
+        if User.find_by(uid: auth['uid'])
+            @user = User.find_by(uid: auth['uid'])
+        else
+            @user = User.create(:username => auth['info']['name'], :password => SecureRandom.hex, :uid => auth['uid'])
+            flash[:password_notice] = "Your password is: #{@user.password}"
         end
 
         session[:user_id] = @user.id
-
         redirect_to user_path(@user)
     end
 
@@ -35,3 +36,15 @@ class SessionsController < ApplicationController
     end
 
 end
+
+
+
+
+
+# @user = User.find_or_create_by(uid: auth['uid']) do |u|
+#             u.username = auth['info']['name']
+#             u.profile_pic = auth['info']['image']
+#             if u.password.nil?
+#                 u.password = SecureRandom.hex
+#                 flash[:password_notice] = "Your password is #{u.password}"
+#             end

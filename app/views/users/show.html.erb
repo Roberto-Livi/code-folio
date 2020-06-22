@@ -6,6 +6,12 @@
         <%= render 'follows/form' %>
     <% end %><br><br>
 
+    <p>
+        <% if flash[:password_notice] %>
+            <%= flash[:password_notice] %>
+        <% end %>
+    </p>
+
 <div>
         <strong>follow<%= link_to @user.following.count, following_list_path, :style => "border: none; background-color: white;" %> </strong>
         <strong>followers <%= link_to @user.followers.count, followers_list_path, :style => "border: none; background-color: white;" %></strong>
