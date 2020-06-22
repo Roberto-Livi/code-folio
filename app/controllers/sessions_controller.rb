@@ -37,14 +37,3 @@ class SessionsController < ApplicationController
 
 end
 
-
-
-
-
-# @user = User.find_or_create_by(uid: auth['uid']) do |u|
-#             u.username = auth['info']['name']
-#             u.profile_pic = auth['info']['image']
-#             if u.password.nil?
-#                 u.password = SecureRandom.hex
-#                 flash[:password_notice] = "Your password is #{u.password}"
-#             end
