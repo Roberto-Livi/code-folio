@@ -1,0 +1,6 @@
+<h1><%= @user.username %>'s Posts</h1><br>
+
+<% @posts.each do |post| %>
+    <br><h3><%= post.title %></h3>
+    <%= post.content %><br>
+<% end %>

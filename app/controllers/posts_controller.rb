@@ -1,5 +1,18 @@
 class PostsController < ApplicationController
     before_action :find_post, only: [:edit, :update, :show, :destroy]
+    before_action :login_required, only: [:index, :edit, :update, :show, :destroy]
+
+    def index
+        if params[:user_id]
+            if @user = User.find_by(id: params[:user_id])
+            @posts = User.find(params[:user_id]).posts
+            else
+                redirect_to user_path(current_user)
+            end
+        else
+            redirect_to user_path(current_user)
+        end
+    end
 
     def create
         if !params[:post][:content].empty? && !params[:post][:title].empty?

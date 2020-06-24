@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   # Nested Resources
   resources :users, only: [:show] do
-    resources :posts, only: [:show]
+    resources :posts, only: [:show, :index]
   end
 
   # Follow
