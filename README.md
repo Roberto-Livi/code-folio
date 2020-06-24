@@ -1,25 +1,5 @@
 # code-folio
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # Overview
 
 This is my submission for the Rails Portfolio Project. The application is called "Code Folio", where a user can sign up and create a coding portfolio for the coding world to see. The user will have the ability to create posts on their page. The post created by the user will be displayed on their page and on the news feed page depending on if the user is following them or not. Yes, there is a follow feature in this app. Once you follow someone, you will be able to see their posts from your index page starting with the most recent. This was my attempt to create a social media app for Software Engineers.
