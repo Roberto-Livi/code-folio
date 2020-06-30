@@ -16,8 +16,7 @@ class PostsController < ApplicationController
 
     def create
         if !params[:post][:content].empty? && !params[:post][:title].empty?
-            post = Post.create(post_params)
-            current_user.posts << post
+            current_user.posts.create(post_params)
 
             redirect_to user_path(current_user)
         else

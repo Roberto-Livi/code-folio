@@ -6,6 +6,9 @@ class UsersController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         @searched_user = User.search(params[:search])
         @posts = Post.all
+
+        @longest_post = Post.longest_post.first
+        @user_longest_post = User.find(@longest_post.user_id).username
     end
 
     def new

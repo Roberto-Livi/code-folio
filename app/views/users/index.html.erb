@@ -6,6 +6,14 @@
     <%= submit_tag("Search", :username => nil) %>
 <% end %>
 
+<% if @longest_post %>
+    <p>
+        <h3>Longest Post</h3>
+        <%= @longest_post.content %><br><br>
+        by: <%= @user_longest_post %>
+    </p><br><br>
+<% end %>
+
 <p>
     <% if defined?(@searched_user.username) %>
         <div style ="width: 30%;">
