@@ -22,6 +22,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
+            flash[:sign_up_error] = "Cant leave Username or Password fields empty"
             redirect_to new_user_path
         end
     end
