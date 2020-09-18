@@ -14,13 +14,5 @@ module ApplicationHelper
         return @avatar_user
     end
 
-    # def post_avatar(post)
-    #     if post.image.attached?
-    #         @post_image = image_tag(post.image, :style => "width: 25%; height: 25%;")
-    #     end
-
-    #     return @post_image
-    # end
-
 end
 
